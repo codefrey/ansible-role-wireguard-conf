@@ -31,7 +31,7 @@ wireguard_interfaces:
       peers:
         - name: laptop
           public_key: "kx+CiZJFhoE+AUXF1ZTMDdYFXpChl3nJw9zDjScPd3I="
-          pre_shared_key: "YnlMQ3MrIIKlZdCXW7SLPpoyzph+SKb3UTjfWW9IHLc="
+          preshared_key: "YnlMQ3MrIIKlZdCXW7SLPpoyzph+SKb3UTjfWW9IHLc="
           allowed_ips: "10.0.0.2/32"
 ```
 

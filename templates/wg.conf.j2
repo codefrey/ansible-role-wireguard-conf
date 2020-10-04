@@ -8,10 +8,10 @@ ListenPort = {{ interface.listen_port | int }}
 FwMark = {{ interface.fw_mark }}
 {% endif %}
 {% if interface.address is defined  %}
-Address = {{ interface.address }}
+Address = {{ ((interface.address.split(',') | map('trim')) if interface.address is string else interface.address) | list | join(", ") }}
 {% endif %}
 {% if interface.dns is defined  %}
-DNS = {{ interface.dns }}
+DNS = {{ ((interface.dns.split(',') | map('trim')) if interface.dns is string else interface.dns) | list | join(", ") }}
 {% endif %}
 {% if interface.mtu is defined  %}
 MTU = {{ interface.mtu | int }}
@@ -44,7 +44,7 @@ PublicKey = {{ peer.public_key }}
 {% if peer.preshared_key is defined  %}
 PresharedKey = {{ peer.preshared_key }}
 {% endif %}
-AllowedIPs = {{ peer.allowed_ips }}
+AllowedIPs = {{ ((peer.allowed_ips.split(',') | map('trim')) if peer.allowed_ips is string else peer.allowed_ips) | list | join(", ") }}
 {% if peer.endpoint is defined  %}
 Endpoint = {{ peer.endpoint }}
 {% endif %}
